@@ -9,13 +9,11 @@ class LearnFlutterPage extends StatefulWidget {
 }
 
 class _LearnFlutterPageState extends State<LearnFlutterPage> {
-  bool isSwitch = false;
-  bool? isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Learn Flutter'),
+          title: const Text('JuzgadosApp'),
           automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {
@@ -33,12 +31,7 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
           ]),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            Image.asset('images/einstein.jpg', width: 300, height: 300),
-            const SizedBox(
-              height: 200,
-              width: 200,
-            ),
+          children: <Widget>[
             const Divider(
               color: Colors.black,
             ),
@@ -48,62 +41,77 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
               color: Colors.blue,
               width: double.infinity,
               child: const Text(
-                'This is a text widget',
+                'Listado de Procesos',
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: isSwitch ? Colors.green : Colors.grey),
-              onPressed: () {
-                debugPrint('Elevated Button');
-              },
-              child: Text('Elevated Button'),
-            ),
-            OutlinedButton(
-              onPressed: () {
-                debugPrint('Outlined Button');
-              },
-              child: Text('Outlined Button'),
-            ),
-            TextButton(
-              onPressed: () {
-                debugPrint('Text Button');
-              },
-              child: Text('Text Button'),
-            ),
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                debugPrint('This is the row');
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Icon(Icons.local_fire_department),
-                  Text('row widget'),
-                  Icon(Icons.local_fire_department, color: Colors.blue),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+              child: Table(
+                border: TableBorder.all(width: 2.0, color: Colors.black),
+                children: [
+                  TableRow(children: [
+                    Text(
+                      "Juzgado",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "# Radicado",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Tipo de proceso",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Demandante",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Demandado",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Estado",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Encargado",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Actions",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ]),
+                  TableRow(children: [
+                    Text("Zipaquirá"),
+                    Text("13651320132"),
+                    Text("Familia"),
+                    Text("Edwin Nieto"),
+                    Text("Johan Paramo"),
+                    Text("Pendiente"),
+                    Text("Nombre Abogado"),
+                    Icon(Icons.edit),
+                    Icon(Icons.delete),
+                  ]),
                 ],
               ),
             ),
-            Switch(
-                value: isSwitch,
-                onChanged: (bool newBool) {
-                  setState(() {
-                    isSwitch = newBool;
-                  });
-                }),
-            Checkbox(
-                value: isChecked,
-                onChanged: (bool? newBool) {
-                  isChecked = newBool;
-                }),
-            Image.network(
-                'https://unamglobal.unam.mx/wp-content/uploads/2020/11/relatividad-900x556.jpg')
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          debugPrint('Floating Action Button');
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

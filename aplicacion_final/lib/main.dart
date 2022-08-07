@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:aplicacion_final/learn_flutter_page.dart';
 import 'package:flutter/material.dart';
 import 'package:aplicacion_final/home_page.dart';
 import 'package:aplicacion_final/profile_page.dart';
@@ -39,34 +42,22 @@ class _RootPageState extends State<RootPage> {
       appBar: AppBar(title: const Text('JuzgadoApp')),
       body: pages[currentPage],
       drawer: Drawer(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
             ElevatedButton(
               onPressed: _closeDrawer,
               child: const Text('X'),
             ),
-            NavigationBar(
-              destinations: const [
-                NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-                NavigationDestination(
-                    icon: Icon(Icons.person), label: 'Profile'),
-              ],
-              onDestinationSelected: (int index) {
-                setState(() {
-                  currentPage = index;
-                });
-              },
-              selectedIndex: currentPage,
-            ),
+            ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Listado de procesos'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => LearnFlutterPage()));
+                }),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          debugPrint('Floating Action Button');
-        },
-        child: Icon(Icons.add),
       ),
       drawerEnableOpenDragGesture: false,
     );
