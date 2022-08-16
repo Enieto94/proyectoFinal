@@ -264,8 +264,7 @@ class _RegisterState extends State<Register> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const MyHomePage()),
+                      MaterialPageRoute(builder: (context) => DashBoard()),
                     );
                   },
                   child: Container(
