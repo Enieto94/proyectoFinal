@@ -49,19 +49,6 @@ class _AddEditPageState extends State<AddEditPage> {
     }
   }
 
-  addEditData() {
-    var url = Uri.parse('http://localhost/crud/add.php');
-    http.post(url, body: {
-      'juzgado': juzgadoController.text,
-      'radicado': radicadoController.text,
-      'tipo_proceso': tipoProcesoController.text,
-      'demandante': demandanteController.text,
-      'demandado': demandadoController.text,
-      'estado': estadoController.text,
-      'encargado': encargadoController.text
-    });
-  }
-
   @override
   void initState() {
     juzgadoController = TextEditingController(text: '');
@@ -176,7 +163,7 @@ class _AddEditPageState extends State<AddEditPage> {
               color: Colors.amber,
               child: Text('Save'),
               onPressed: () {
-                addEditData();
+                addUpdateData();
                 Navigator.pop(context);
               },
             ),

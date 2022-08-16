@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddEditPage(index: 0, list: []),
+              builder: (context) => NewWidget(),
             ),
           );
         },
@@ -88,5 +88,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 : CircularProgressIndicator();
           }),
     );
+  }
+}
+
+class NewWidget extends StatelessWidget {
+  const NewWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return NewWidget();
   }
 }
