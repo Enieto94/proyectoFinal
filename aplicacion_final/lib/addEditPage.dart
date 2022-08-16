@@ -1,12 +1,13 @@
-import 'package:aplicacion_final/DashBoard.dart';
 import 'package:flutter/material.dart';
 import 'dart:core';
 import 'package:http/http.dart' as http;
+import 'package:aplicacion_final/DashBoard.dart';
 
 class AddEditPage extends StatefulWidget {
-  final List<dynamic> list;
+  final List list;
   final int index;
   AddEditPage({required this.list, required this.index});
+  // AddEditPage();
   @override
   _AddEditPageState createState() => _AddEditPageState();
 }
@@ -29,7 +30,7 @@ class _AddEditPageState extends State<AddEditPage> {
         'id': widget.list[widget.index]['id'],
         'juzgado': juzgadoController.text,
         'radicado': radicadoController.text,
-        'tipoProceso': tipoProcesoController.text,
+        'tipo_proceso': tipoProcesoController.text,
         'demandante': demandanteController.text,
         'demandado': demandadoController.text,
         'estado': estadoController.text,
@@ -40,7 +41,7 @@ class _AddEditPageState extends State<AddEditPage> {
       http.post(url, body: {
         'juzgado': juzgadoController.text,
         'radicado': radicadoController.text,
-        'tipoProceso': tipoProcesoController.text,
+        'tipo_proceso': tipoProcesoController.text,
         'demandante': demandanteController.text,
         'demandado': demandadoController.text,
         'estado': estadoController.text,
@@ -163,13 +164,13 @@ class _AddEditPageState extends State<AddEditPage> {
               onPressed: () {
                 setState(() {
                   addUpdateData();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DashBoard(),
+                    ),
+                  );
                 });
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DashBoard(),
-                  ),
-                );
               },
               color: Colors.amber,
               child: Text(

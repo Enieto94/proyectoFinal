@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:aplicacion_final/addEditPage.dart';
@@ -51,9 +52,11 @@ class _MyHomePageState extends State<MyHomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddEditPage(index: 0, list: []),
+              // builder: (context) => AddEditPage(),
+              builder: (context) => AddEditPage(list: [], index: 0),
             ),
           );
+          debugPrint("Clicked FloatingActionButton");
         },
       ),
       body: FutureBuilder<dynamic>(
