@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:aplicacion_final/addEditPage.dart';
 
+void main() {
+  runApp(DashBoard());
+}
+
 class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,6 +35,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -42,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => NewWidget(),
+              builder: (context) => AddEditPage(index: 0, list: []),
             ),
           );
         },
@@ -88,16 +97,5 @@ class _MyHomePageState extends State<MyHomePage> {
                 : CircularProgressIndicator();
           }),
     );
-  }
-}
-
-class NewWidget extends StatelessWidget {
-  const NewWidget({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return NewWidget();
   }
 }

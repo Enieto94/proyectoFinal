@@ -1,7 +1,7 @@
+import 'package:aplicacion_final/DashBoard.dart';
 import 'package:flutter/material.dart';
 import 'dart:core';
 import 'package:http/http.dart' as http;
-import 'package:aplicacion_final/Dashboard.dart';
 
 class AddEditPage extends StatefulWidget {
   final List<dynamic> list;
@@ -160,12 +160,22 @@ class _AddEditPageState extends State<AddEditPage> {
           Padding(
             padding: EdgeInsets.all(8),
             child: RaisedButton(
-              color: Colors.amber,
-              child: Text('Save'),
               onPressed: () {
-                addUpdateData();
-                Navigator.pop(context);
+                setState(() {
+                  addUpdateData();
+                });
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DashBoard(),
+                  ),
+                );
               },
+              color: Colors.amber,
+              child: Text(
+                editMode ? 'Update' : 'Add',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
         ],
