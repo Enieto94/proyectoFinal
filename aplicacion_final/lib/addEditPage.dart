@@ -8,7 +8,7 @@ class AddEditPage extends StatefulWidget {
   final int index;
   AddEditPage({required this.list, required this.index});
   @override
-  State<AddEditPage> createState() => _AddEditPageState();
+  _AddEditPageState createState() => _AddEditPageState();
 }
 
 class _AddEditPageState extends State<AddEditPage> {
@@ -49,8 +49,8 @@ class _AddEditPageState extends State<AddEditPage> {
     }
   }
 
-  addEditData() async {
-    var url = await Uri.parse('http://localhost/crud/add.php');
+  addEditData() {
+    var url = Uri.parse('http://localhost/crud/add.php');
     http.post(url, body: {
       'juzgado': juzgadoController.text,
       'radicado': radicadoController.text,

@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:aplicacion_final/addEditPage.dart';
 
-void main() {
-  runApp(DashBoard());
-}
-
 class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,11 +28,6 @@ class _MyHomePageState extends State<MyHomePage> {
     var url = Uri.parse('http://192.168.20.23/get.php');
     var response = await http.get(url);
     return json.decode(response.body);
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   @override
