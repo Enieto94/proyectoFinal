@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-08-2022 a las 15:05:11
+-- Tiempo de generación: 16-08-2022 a las 17:18:05
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -34,7 +34,7 @@ CREATE TABLE `procesos` (
   `tipo_proceso` text DEFAULT NULL,
   `demandante` text DEFAULT NULL,
   `demandado` text DEFAULT NULL,
-  `estado` varchar(20) DEFAULT NULL,
+  `estado` text DEFAULT NULL,
   `encargado` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -43,9 +43,12 @@ CREATE TABLE `procesos` (
 --
 
 INSERT INTO `procesos` (`id`, `juzgado`, `radicado`, `tipo_proceso`, `demandante`, `demandado`, `estado`, `encargado`) VALUES
-(13, 'Zipaquiráaaaaeditado', '193013924', '', 'Edwin Nieto', 'Colpensiones', 'EN PROCESO', 'Andrés Carvajal'),
-(14, 'Zipaquiráa', '193013924', 'Familia', 'Edwin Nieto', 'Colpensiones', 'EN PROCESO', 'Andrés Carvajal'),
-(15, 'Zipaquiráa', '193013924', 'Familia', 'Edwin Nieto', 'Colpensiones', 'EN PROCESOeditado', 'Andrés Carvajal');
+(14, '1ro del circuito Zipaquirá', '1930139241312', 'asaasdf', 'Edwin Nieto', 'Colpensiones', 'EN PROCESO', 'Andrés Carvajal'),
+(15, '1ro de zipaquira', '1930139242', 'familia', 'Edwin Nieto', 'Colpensiones', 'EN PROCESO', 'Andrés Carvajal'),
+(16, '1ro de Bogotá', '1098358974', 'familia', 'Danielo Rojas', 'Eduardo Garzon', 'EN PROCESO', 'Daniel Carvajal'),
+(17, 'Juzgado 2do', '198374193481029384', 'civil', 'Edwin nietop', 'Daniela Jimenez', 'INICIADO', 'Danilo Rojas'),
+(18, '3ro de FAMILIA', '10302380439', 'penal', 'Danilo cifuentes', 'Katherine rojas', 'EN PROCESO', 'Sara Jimenez'),
+(19, '1ro del circuito', '107843983209', 'administrativo', 'Sneider gutierrez', 'brayan orozco', 'EN PROCESO', 'Gustavo rojas');
 
 --
 -- Índices para tablas volcadas
@@ -65,7 +68,7 @@ ALTER TABLE `procesos`
 -- AUTO_INCREMENT de la tabla `procesos`
 --
 ALTER TABLE `procesos`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
